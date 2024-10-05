@@ -9,6 +9,22 @@ const element = React.createElement(
 
 )
 
-const element2 = <div><div>Hello World!</div><h3>Learning React !</h3></div>
+const topic = 'Learning React !';
+
+function getTopicName() {
+    if (topic === 'Learning React !')
+        return <div>{topic}</div>
+    else
+        return <div>Else Part !</div>
+}
+
+const element2 = (
+    <div>
+        <div className='newStyle' tabIndex="1">Hello World!</div>
+        <h3>{topic}</h3>
+        <h3>{getTopicName()}</h3>
+        <h3>{2 + 2}</h3>
+    </div>
+);
 
 ReactDOM.render(element2, document.getElementById('app'));
