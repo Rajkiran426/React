@@ -1,11 +1,10 @@
 
 import './App.css';
 import Button from './components/Buttons/Button';
-
 function App() {
     return (
-        <div className="App">
-            <div>Welcome to React !</div>
+        <div className='container mx-auto'>
+            <Button />
             <Button />
         </div>
     );
