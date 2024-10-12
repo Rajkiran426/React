@@ -39,11 +39,11 @@ const Button = ({ name, text }) => { //ES6
     return (
         <div className='my-2'>
             <button className='bg-blue-400 text-white px-5 hover:bg-blue-700 py-3 rounded-full'>
-                {name}               
+                {name}
             </button>
             <p> {text}</p>
         </div>
-       
+
     );
 }
 export default Button; 
