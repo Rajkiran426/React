@@ -25,7 +25,24 @@ class Posts extends Component {
             { title: 'post 2', description: 'post 2 description' }
         ],
         postTitle: 'Posts Title',
+    };
+
+    updateTitleHandller(){
+        console.log('updatein title');
+        console.log(this);
+        this.setState({
+            postTitle: 'Modified title'
+        });
     }
+
+    titleHandller = () =>{
+        console.log('updatein title via property function');
+        console.log(this);
+        this.setState({
+            postTitle: 'Modified title'
+        });
+    };
+
     render() {
         setTimeout(() => {
             console.log('Modifying.');
@@ -46,6 +63,10 @@ class Posts extends Component {
         return (
             <div>
                 <h2 className='text-2xl my-3 '>{this.state.postTitle}</h2>
+                <div>
+                    
+                    <button onClick={this.titleHandller} className='px-5 py-2 bg-red-500 rounded-3xl text-white' >Update Post Title</button>
+                </div>
                 <hr />
                 <div className='flex my-3'>
                     <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
