@@ -5,11 +5,11 @@ import Main from './components/MainPage/Main';
 function App() {
     return (
         <div className='container mx-auto'>
-            <Button />
-            <Button />
+            <Button name='First Button' text='New Variable Testing.' />
+            <Button name='Second Button' />
 
-            <Main />
-
+            <Main text='Good Morning' />
+            <Main text='Good Morning from props.' />
         </div>
     );
 }

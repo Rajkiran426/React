@@ -4,7 +4,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <div>Ready to learn react</div>
+                <div>{this.props.text}</div>
             </div>
         );
     }
