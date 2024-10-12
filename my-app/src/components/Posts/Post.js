@@ -27,21 +27,21 @@ class Posts extends Component {
         postTitle: 'Posts Title',
     };
 
-    updateTitleHandller(e){
+    updateTitleHandller(title, e){
         e.preventDefault();
         console.log('updatein title');
         console.log(this);
         this.setState({
-            postTitle: 'Modified title'
+            postTitle: title,
         });
     };
 
-    titleHandller = (e) =>{
+    titleHandller = (title, e) =>{
         e.preventDefault();
         console.log('updatein title via property function');
         console.log(this);
         this.setState({
-            postTitle: 'Modified title'
+            postTitle: title,
         });
     };
 
@@ -68,12 +68,12 @@ class Posts extends Component {
                 <div>
                 <a 
                     href='http://google.com' 
-                    onClick={this.titleHandller} 
+                    onClick={this.titleHandller.bind(this, 'Raj Web Dev')} 
                     className='px-5 py-2 bg-red-500 rounded-3xl text-white' >
                     Update with property. </a>
                     <a 
                     href='http://google.com' 
-                    onClick={this.updateTitleHandller.bind(this)} 
+                    onClick={this.updateTitleHandller.bind(this, 'Modified')} 
                     className='px-5 py-2 bg-red-500 rounded-3xl text-white' >
                     Update via Mehtod </a>
                      </div>
