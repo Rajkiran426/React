@@ -28,45 +28,50 @@ class Posts extends Component {
         showPosts: true,
         count: true,
     };
-    togglePostHandller  = () =>{
+    togglePostHandller = () => {
         this.setState({
             showPosts: !this.state.showPosts,
         });
     }
-        getPost(){
-            if(!this.state.showPosts) return null;
+    getPost() {
+        if (!this.state.showPosts) return null;
 
-           // let posts = this.state.posts.map((post) =>(
-           //     <SinglePost title={post.title} description={post.description} />
-           // ));
-           let posts =[];
-           for(let post of this.state.posts){
+        // let posts = this.state.posts.map((post) =>(
+        //     <SinglePost title={post.title} description={post.description} />
+        // ));
+        let posts = [];
+        for (let post of this.state.posts) {
             posts.push(
-                <SinglePost title={post.title} description={post.description} />
+                <SinglePost title={post.title} description={post.description} />,
             );
-           }
-            return  <div className='flex my-3'>{posts}
-            </div>;
         }
-    render() {    
+        return (<div className='flex my-3'>
+            {this.state.posts.map((post, index) => {
+                
+               return (<SinglePost key = {index} title={post.title} description={post.description} />);
+            })}
+        </div>
+        );
+    }
+    render() {
         let posts = null;
-        if(this.state.showPosts){
+        if (this.state.showPosts) {
             posts = (
                 <div className='flex my-3'>
                     <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
                     <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
                 </div>
             );
-        }    
+        }
         return (
             <div>
                 <div>{this.state.conut && 'Show Count'}</div>
                 <h2 className='text-2xl my-3 '>{this.state.postTitle}</h2>
-                
+
                 <div>
                     <button onClick={this.togglePostHandller} className='px-5 py-3 bg-red-500 text-white' >
                         {this.state.showPosts ? 'Hide Posts' : 'Show Posts'}
-                        </button>
+                    </button>
                 </div>
                 <hr />
                 {this.getPost()}
