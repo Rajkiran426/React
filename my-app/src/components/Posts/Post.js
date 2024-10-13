@@ -65,6 +65,7 @@ class Posts extends Component {
         return (
             <div>
                 <h2 className='text-2xl my-3 '>{this.state.postTitle}</h2>
+                
                 <div>
                 <a 
                     href='http://google.com' 
