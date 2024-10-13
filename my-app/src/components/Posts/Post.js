@@ -32,13 +32,6 @@ class Posts extends Component {
             showPosts: !this.state.showPosts,
         });
     }
-    getPost(){
-        if(this.state.showPosts) return null;
-        return (<div className='flex my-3'>
-        <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
-        <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
-    </div>);
-    }
 
     render() {    
         let posts = null;
@@ -60,7 +53,11 @@ class Posts extends Component {
                         </button>
                 </div>
                 <hr />
-                {this.getPost()}
+                {this.state.showPosts &&
+                (<div className='flex my-3'>
+                    <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
+                    <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
+                </div>)}
             </div>
         );
     }
