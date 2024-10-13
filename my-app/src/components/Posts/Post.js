@@ -35,10 +35,18 @@ class Posts extends Component {
     }
         getPost(){
             if(!this.state.showPosts) return null;
-            return  (<div className='flex my-3'>
-                <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
-                <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
-            </div>);
+
+           // let posts = this.state.posts.map((post) =>(
+           //     <SinglePost title={post.title} description={post.description} />
+           // ));
+           let posts =[];
+           for(let post of this.state.posts){
+            posts.push(
+                <SinglePost title={post.title} description={post.description} />
+            );
+           }
+            return  <div className='flex my-3'>{posts}
+            </div>;
         }
     render() {    
         let posts = null;
