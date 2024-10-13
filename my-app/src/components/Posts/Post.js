@@ -26,13 +26,20 @@ class Posts extends Component {
         ],
         postTitle: 'Posts Title',
         showPosts: true,
+        count: 0,
     };
     togglePostHandller  = () =>{
         this.setState({
             showPosts: !this.state.showPosts,
         });
     }
-
+        getPost(){
+            if(!this.state.showPosts) return null;
+            return  (<div className='flex my-3'>
+                <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
+                <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
+            </div>);
+        }
     render() {    
         let posts = null;
         if(this.state.showPosts){
@@ -45,6 +52,7 @@ class Posts extends Component {
         }    
         return (
             <div>
+                <div>{this.state.conut !==0 && 'Show Count'}</div>
                 <h2 className='text-2xl my-3 '>{this.state.postTitle}</h2>
                 
                 <div>
@@ -53,11 +61,7 @@ class Posts extends Component {
                         </button>
                 </div>
                 <hr />
-                {this.state.showPosts &&
-                (<div className='flex my-3'>
-                    <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
-                    <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
-                </div>)}
+                {this.getPost()}
             </div>
         );
     }
