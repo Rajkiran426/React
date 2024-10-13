@@ -21,8 +21,9 @@ export default Posts; */
 class Posts extends Component {
     state = {
         posts: [
-            { title: 'Post 1', description: 'post 1 description' },
-            { title: 'post 2', description: 'post 2 description' }
+            { id:'1', title: 'Post 1', description: 'post 1 description' },
+            { id:'2', title: 'post 2', description: 'post 2 description' },
+            { id:'3', title: 'post 3', description: 'post 3 description' },
         ],
         postTitle: 'Posts Title',
         showPosts: true,
@@ -48,7 +49,7 @@ class Posts extends Component {
         return (<div className='flex my-3'>
             {this.state.posts.map((post, index) => {
                 
-               return (<SinglePost key = {index} title={post.title} description={post.description} />);
+               return (<SinglePost key = {post.id} title={post.title} description={post.description} />);
             })}
         </div>
         );
