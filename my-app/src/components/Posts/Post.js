@@ -26,7 +26,7 @@ class Posts extends Component {
         ],
         postTitle: 'Posts Title',
         showPosts: true,
-        count: 0,
+        count: true,
     };
     togglePostHandller  = () =>{
         this.setState({
@@ -52,7 +52,7 @@ class Posts extends Component {
         }    
         return (
             <div>
-                <div>{this.state.conut !==0 && 'Show Count'}</div>
+                <div>{this.state.conut && 'Show Count'}</div>
                 <h2 className='text-2xl my-3 '>{this.state.postTitle}</h2>
                 
                 <div>
